@@ -1,98 +1,112 @@
 # OmniCalc
 
-**1.974 ferramentas locais:** 1.952 conversões de unidades e 22 calculadoras de
-matemática, finanças, geometria, estatística e redes. Busca, categorias, favoritos,
-histórico e resultados explicados. Interface em português e sem dependências npm.
+O OmniCalc é uma aplicação web que reúne calculadoras e conversores de unidades.
+A aplicação funciona localmente e não depende de banco de dados ou API externa.
+O projeto possui 1.974 ferramentas: 1.952 conversões e 22 calculadoras adicionais
+de matemática, finanças, geometria, estatística e redes.
 
-## Abrir no Windows
+A interface está em português e possui busca, categorias, favoritos, histórico e
+explicações dos resultados. O projeto não usa dependências npm.
 
-1. Instale [Node.js](https://nodejs.org/) 20 ou superior, se ainda não tiver.
-2. Extraia o ZIP inteiro em uma pasta. Não execute dentro do arquivo compactado.
-3. Dê dois cliques em **INICIAR.bat**.
-4. O navegador abre em http://127.0.0.1:5173. Deixe o terminal aberto.
+## Como executar
 
-Não precisa de `npm install`, Python, Docker, banco, API nem Ollama.
-Depois de instalar Node, funciona sem acesso à internet. A aplicação não recebe
-dados de terceiros; o servidor entrega arquivos estáticos ao navegador.
+É necessário ter o Node.js 20 ou superior.
 
-No terminal, Windows, Linux ou macOS:
+No Windows:
+
+1. Extraia todo o conteúdo do ZIP para uma pasta.
+2. Dê dois cliques em `INICIAR.bat`.
+3. Acesse http://127.0.0.1:5173 e mantenha o terminal aberto.
+
+Também é possível executar pelo terminal no Windows, Linux ou macOS:
 
 ```bash
 npm start
 ```
 
-Alternativa sem npm: `node scripts/serve.mjs`.
-Não abra index.html por file://: módulos JavaScript precisam do servidor local.
-Se a porta estiver ocupada, encerre a outra instância. Para usar outra porta no
-PowerShell: `$env:PORT=5174; npm start`.
+Não é necessário executar `npm install`. Depois que o Node.js estiver instalado, a aplicação pode ser usada sem acesso à internet. O servidor apenas entrega os
+arquivos estáticos ao navegador e não recebe dados de terceiros.
 
-## Verificar e gerar
+Como alternativa ao npm, use `node scripts/serve.mjs`. Não abra o `index.html`
+diretamente com `file://`, pois os módulos JavaScript precisam do servidor local.
+Se a porta 5173 estiver ocupada, encerre a outra instância ou use outra porta. No
+PowerShell:
 
-```bash
-npm test                 # todos os testes; log completo em reports/tests.tap.txt
-npm run generate        # recria somente módulos/testes gerados do catálogo
-npm run check:generated # verifica determinismo sem regravar
-npm run build           # saída estática em dist/
-npm run preview         # abre o servidor para dist/
-npm run verify          # determinismo + todos os testes + build
+```powershell
+$env:PORT=5174; npm start
 ```
 
-No Windows, TESTAR.bat executa a verificação. Os módulos já estão gerados no ZIP;
-você não precisa gerar novamente para usar a aplicação.
+## Testes e geração
+
+```bash
+npm test                 # executa todos os testes; log em reports/tests.tap.txt
+npm run generate         # recria os módulos e testes gerados a partir do catálogo
+npm run check:generated  # verifica o determinismo sem regravar arquivos
+npm run build            # cria a saída estática em dist/
+npm run preview          # inicia o servidor para conferir dist/
+npm run verify           # verifica determinismo, testes e build
+```
+
+No Windows, `TESTAR.bat` executa a verificação. Os módulos já estão gerados no
+ZIP, portanto não é preciso gerá-los novamente para usar a aplicação.
 
 ## Funcionalidades
 
-Conversões: comprimento, área, volume, massa, tempo, velocidade, pressão, energia,
-potência, força, frequência, ângulo, armazenamento digital e temperatura.
+As conversões abrangem comprimento, área, volume, massa, tempo, velocidade,
+pressão, energia, potência, força, frequência, ângulo, armazenamento digital e
+temperatura.
 
-Calculadoras especiais: operações aritméticas, porcentagem, variação percentual,
-regra de três, desconto, montante de juros simples/compostos, círculo, retângulo,
-hipotenusa, cilindro, média, mediana, desvios padrão, transferência de dados e
-sub-redes IPv4, incluindo /31 e /32. As ferramentas de finanças são exemplos
-matemáticos, sem taxas atuais. Prefixo /31 aplica a convenção ponto a ponto.
+As 22 calculadoras adicionais incluem operações aritméticas, porcentagem,
+variação percentual, regra de três, desconto, juros simples e compostos, círculo,
+retângulo, hipotenusa, cilindro, média, mediana, desvios padrão, transferência de
+dados e sub-redes IPv4, inclusive `/31` e `/32`. Os cálculos financeiros são
+apenas exemplos matemáticos e não usam taxas atuais. O prefixo `/31` segue a
+convenção para enlaces ponto a ponto.
 
-Use vírgula ou ponto decimal, sem separador de milhar. Para estatística, separe
-valores por ponto e vírgula ou linha: `1,5; 2; 3`. A barra `/` foca a busca.
-Cada ferramenta pode ser aberta por um link como `/#ipv4-subnet`.
+Os campos aceitam vírgula ou ponto decimal, mas não separador de milhar. Nas
+calculadoras de estatística, os valores podem ser separados por ponto e vírgula
+ou por linha, como em `1,5; 2; 3`. A tecla `/` leva o foco para a busca. Cada
+ferramenta também pode ser aberta por um link direto, como `/#ipv4-subnet`.
 
-## Arquitetura e código gerado
+## Estrutura do projeto
 
-JavaScript ESM, HTML, CSS e Node nativo. Sem React, TypeScript ou bundler, por
-decisão registrada em PLAN.md para simplificar execução e distribuição offline.
-Cada conversão tem um módulo executável carregado sob demanda pela interface.
-Ela não carrega todos os módulos de cálculo de uma vez.
+O projeto usa JavaScript ESM, HTML, CSS e recursos nativos do Node.js. A decisão
+de não usar React, TypeScript ou bundler está registrada em `PLAN.md` e simplifica
+a execução offline. Cada conversão possui um módulo executável, carregado pela
+interface somente quando necessário.
 
 ```text
 SPEC/                   especificações datadas, anteriores ao código no Git
-src/catalog/units.js    unidades, fatores e deslocamentos auditáveis
-src/conversions/        1.952 módulos gerados e utilizados pela interface
-src/core/               validação numérica e calculadoras especiais
+src/catalog/units.js    unidades, fatores e deslocamentos
+src/conversions/        1.952 módulos de conversão gerados
+src/core/               validação numérica e calculadoras adicionais
 src/ui/                 interface, busca, favoritos e histórico
-tests/conversions/      testes gerados por par de unidades
+tests/conversions/      testes gerados para os pares de unidades
 tests/                  exemplos independentes e testes de infraestrutura
 scripts/                gerador, servidor, build, testes e contagem
-prompts/sessoes/         registros disponíveis e instruções de exportação
-reports/                resultados reais de testes e cloc
+prompts/sessoes/        registros disponíveis e instruções de exportação
+reports/                resultados dos testes e do cloc
 ```
 
-**A maior parte do volume é gerada mecanicamente por template.** O gerador foi
-escrito com auxílio do Codex. Nenhuma linha gerada deve ser apresentada como
-100 mil linhas únicas, escritas manualmente ou diretamente pela IA. A aplicação
-usa esses módulos, mas eles repetem a mesma estrutura entre pares de unidades.
-Não foram copiadas bibliotecas, dependências ou implementações de outros projetos
-para aumentar a contagem. Consulte SOURCES.md para constantes e limites numéricos.
+Grande parte das linhas vem do gerador de conversões e testes, que repete uma
+estrutura definida por template. O gerador foi escrito com auxílio do Codex. As
+188 mil linhas não foram escritas manualmente e não representam 188 mil linhas de
+lógica diferente. Não foram copiadas bibliotecas, dependências ou implementações
+de outros projetos para aumentar a contagem.
 
-O oráculo racional dos testes usa as constantes do mesmo catálogo: verifica o
-motor e regressões, mas não valida sozinho a correção das constantes. Há também
-exemplos conhecidos independentes para cada família. Números usam dupla precisão;
-não há precisão decimal arbitrária ou processamento simbólico.
+Os testes das conversões usam as constantes do mesmo catálogo. Eles verificam o
+motor e possíveis regressões, mas não comprovam sozinhos que todas as constantes
+estão corretas. Também existem exemplos conhecidos e independentes para cada
+família. Os cálculos usam dupla precisão numérica, sem precisão decimal arbitrária
+ou processamento simbólico. As fontes e limitações das constantes estão em
+`SOURCES.md`.
 
-## Contagem oficial de linhas
+## Contagem de linhas
 
-Requer [cloc](https://github.com/AlDanial/cloc) instalado e no PATH, além de Git.
-`npm run count` executa a regra, separa aplicação/infraestrutura de testes e
-atualiza este bloco. Só arquivos versionados entram. Faça git add dos novos
-arquivos antes de medir.
+A contagem requer o [cloc](https://github.com/AlDanial/cloc) no `PATH`, além do
+Git. O comando `npm run count` aplica a regra, separa aplicação/infraestrutura de
+testes e atualiza o bloco abaixo. Somente arquivos versionados são contados, por
+isso os arquivos novos devem passar por `git add` antes da medição.
 
 ```bash
 cloc . --vcs=git \
@@ -121,99 +135,23 @@ SUM:                          3925          25426           3915         188811
 
 <!-- CLOC:END -->
 
-Os arquivos de dados/catalogação JSON, a documentação, logs, favicon SVG e dist/
-estão excluídos conforme a regra. `src/catalog/conversions.js` contém metadados JS
-em uma única linha; o volume medido vem dos módulos e testes, não de dados por linha.
+Arquivos JSON de catalogação, documentação, logs, favicon SVG e `dist/` ficam
+fora da contagem conforme a regra. O arquivo `src/catalog/conversions.js` guarda
+metadados JavaScript em uma única linha. O maior volume está nos módulos e testes
+gerados, não em dados distribuídos artificialmente por linha.
 
-## Resultado da validação
+## Validação realizada
 
-- 17.639 testes passaram; nenhuma falha, cancelamento ou teste ignorado.
-- 1.952 conversões reconstruídas sem diferenças: geração determinística.
-- Build estático executado com sucesso.
-- Interface conferida em Chromium headless: cálculo, vírgula decimal, busca,
-  validação, favorito após recarregar, restauração do histórico, CIDR e celular
-  de 390px sem overflow horizontal; sem erros de JavaScript nos fluxos testados.
-- Capturas desktop/mobile incluídas em reports/ui-desktop.png e ui-mobile.png no ZIP.
-- Node utilizado na validação: 24.19.0; requisito declarado: Node >= 20.
-- O código Windows está incluído, mas a validação foi executada em Linux.
+A validação registrou 17.639 testes aprovados, sem falhas, cancelamentos ou testes
+ignorados. As 1.952 conversões foram geradas novamente sem diferenças, e o build
+estático foi concluído.
 
-## SDD e procedência
+A interface foi verificada no Chromium em modo headless. Foram testados cálculo,
+vírgula decimal, busca, validação, permanência de favorito após recarregar,
+restauração do histórico, CIDR e visualização em tela de 390 px sem rolagem
+horizontal. Não ocorreram erros de JavaScript nesses fluxos. As capturas estão em
+`reports/ui-desktop.png` e `reports/ui-mobile.png`.
 
-Ferramenta: Codex em ChatGPT Work. A família do agente desta execução é GPT-6;
-o identificador exato e o nível de raciocínio não são expostos ao projeto.
-O usuário solicitou 5.6 high, mas a sessão não pôde ser trocada para esse modelo.
-Não há uso de API de modelos em execução nem custo de tokens para regenerar.
-
-O ZIP inclui `.git/` com commits reais: specs/plano/tarefas primeiro, depois
-implementações por parte do sistema. Autoria inicial: **Codex Workspace**,
-`codex-workspace@localhost`, um marcador transparente do ambiente. Não representa
-commit assinado ou realizado na conta de David ou do colega. Datas não foram
-retroativas. O primeiro commit deixou os trailers em uma linha com `\n` literal;
-os commits seguintes usam trailers separados corretamente. Esse detalhe está
-registrado aqui sem reescrever o histórico.
-
-## Completar a entrega da AP1
-
-Este pacote entrega a aplicação local, não todas as exigências administrativas.
-A [atividade](https://gustavopinto.org/assets/slides/dsai-2026/ap1.html) exige
-repositório público, URL pública, autores reais e exportações completas.
-
-| Item | Situação |
-| --- | --- |
-| Aplicação local, gerador e testes | Concluído |
-| Specs antes do código, plano e tarefas | Concluído |
-| Mais de 100.000 LOC pelo cloc | Consulte resultado real acima |
-| Participante 1 | David Pinheiro Tavares — confirmar nome/conta |
-| Participante 2 | PREENCHER |
-| Repositório público novo | CRIAR na conta da dupla |
-| URL pública | PUBLICAR e substituir este campo pela URL |
-| Commits das duas contas reais | PENDENTE; os commits de ambiente não substituem |
-| Exportações brutas de todos os prompts | PENDENTE; registro parcial não substitui |
-| Aceitação de código gerado | Não garantida; abordagem deve ser declarada |
-
-Configure sua identidade local antes de continuar. Cada integrante usa sua
-própria conta e registra alterações reais; não troque autores de commits passados.
-
-```bash
-git config user.name "SEU NOME REAL"
-git config user.email "EMAIL ASSOCIADO A SUA CONTA GITHUB"
-git status
-```
-
-Crie um repositório vazio público, por exemplo `dsai-ap1-omnicalc`, sem README
-automático. Configure o remote com a URL exibida pelo GitHub e faça git push.
-Não use upload de arquivos pela interface web, squash ou push --force.
-
-Para publicar por GitHub Pages: o workflow `.github/workflows/pages.yml` já está
-incluído. Depois do push, em Settings → Pages escolha **GitHub Actions** como
-fonte. O workflow gera dist/ e publica como site estático; a interface usa caminhos
-relativos para funcionar dentro de /nome-do-repositorio/. Aguarde o workflow e
-copie a URL real no README. A publicação não foi executada neste pacote.
-
-Antes de cada novo commit de código, registre a spec anterior e adicione trailers:
-
-```text
-interface: descreve a mudança concreta
-
-Agent: codex/MODELO_REAL_VERIFICADO
-Spec: SPEC/2026-09-30-interface.md
-```
-
-Exporte também a conversa anterior de planejamento, com erros, correções e todos
-os prompts. Veja prompts/sessoes/README.md. Não apresente o registro parcial
-incluído como exportação bruta completa.
-
-## Apresentação sugerida, sem slides
-
-Abra a URL pública. Mostre km → m, Celsius → Fahrenheit, MiB → MB e a calculadora
-IPv4. Favorite uma ferramenta e restaure um cálculo do histórico. Mostre as specs
-e sua ordem no Git. Explique o gerador e os limites, depois o cloc e testes. Escolha
-os três prompts reais na exportação completa, sem inventar resultados de sessões.
-Contabilize horas, prompts e sessões a partir dos registros reais da dupla.
-
-## Continuar no Codex com 5.6 high
-
-Dentro da pasta, abra `codex`, use `/model` e selecione GPT-5.6 e High **se essas
-opções estiverem disponíveis na sua conta**. Confira com `/status`. Não existe
-seleção de modelo pela aplicação OmniCalc; essa é uma configuração do agente.
-Leia AGENTS.md e modifique o catálogo/gerador, evitando editar a saída gerada.
+A validação foi executada no Linux com Node.js 24.19.0. O requisito do projeto
+continua sendo Node.js 20 ou superior. Os arquivos para Windows estão incluídos,
+mas não foram testados nessa validação.
