@@ -4,6 +4,9 @@ import { parseNumber, parseList, formatNumber } from '../core/numbers.js';
 const $ = (id) => document.getElementById(id);
 const storageKey = 'omnicalc-v1';
 const pageSize = 12;
+function fragmentId() {
+  try { return decodeURIComponent(location.hash.slice(1)); } catch { return ''; }
+}
 let stored = {};
 try { stored = JSON.parse(localStorage.getItem(storageKey) || '{}') || {}; } catch { /* Armazenamento opcional. */ }
 const favorites = new Set(Array.isArray(stored.favorites) ? stored.favorites.filter((id) => getCalculator(id)) : []);
@@ -228,8 +231,8 @@ document.addEventListener('keydown', (event) => {
     event.preventDefault(); $('search').focus();
   }
 });
-window.addEventListener('hashchange', () => choose(decodeURIComponent(location.hash.slice(1))));
+window.addEventListener('hashchange', () => choose(fragmentId()));
 renderCategories();
 renderCatalog();
-const initial = decodeURIComponent(location.hash.slice(1));
+const initial = fragmentId();
 choose(getCalculator(initial) ? initial : 'length-km-to-m');
