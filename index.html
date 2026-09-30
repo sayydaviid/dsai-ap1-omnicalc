@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111217">
+  <meta name="description" content="Calculadoras e conversões de unidades. Matemática, redes, finanças e muito mais, no seu navegador.">
+  <title>OmniCalc — cada conta, uma possibilidade</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./src/ui/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#length-km-to-m" aria-label="OmniCalc, início"><span class="brand-icon">∑</span>omni<span>calc</span><span class="brand-dot">.</span></a>
+    <span class="top-description">Cada conta, uma possibilidade.</span>
+    <span class="privacy"><i></i> Tudo no seu navegador</span>
+  </header>
+  <main class="shell">
+    <section class="hero">
+      <div><span class="eyebrow">SEU LABORATÓRIO DE NÚMEROS</span><h1>Menos esforço.<br><em>Mais resultado.</em></h1><p>De metros a megabytes. Encontre a ferramenta certa e resolva.</p></div>
+      <div class="hero-art" aria-hidden="true"><span>km</span><b>⇄</b><span>m</span><small>UM UNIVERSO DE POSSIBILIDADES</small></div>
+    </section>
+    <section class="searchbar" aria-label="Busca de calculadoras">
+      <span aria-hidden="true" class="search-icon">⌕</span><input id="search" type="search" placeholder="O que vamos calcular hoje?" aria-label="Buscar calculadora" autocomplete="off"><kbd>/</kbd>
+      <span id="catalog-count" class="catalog-count"></span>
+    </section>
+    <div class="workspace">
+      <aside class="sidebar">
+        <p class="section-label">EXPLORAR</p>
+        <nav id="categories" aria-label="Categorias"></nav>
+        <div class="sidebar-note"><b>Sem complicação.</b><p>Sem cadastro, sem uploads. Seus cálculos ficam neste dispositivo.</p></div>
+      </aside>
+      <section class="catalog" aria-label="Catálogo de ferramentas">
+        <div class="catalog-top"><h2 id="category-title">Todas as ferramentas</h2><span id="result-count"></span></div>
+        <div class="tabs" role="group" aria-label="Exibição do catálogo"><button data-tab="all" class="active" aria-pressed="true">Todas</button><button data-tab="favorites" aria-pressed="false">Favoritos <span id="favorite-count">0</span></button><button data-tab="history" aria-pressed="false">Histórico</button></div>
+        <div id="cards" class="cards"></div>
+        <div id="pagination" class="pagination"><button id="previous" aria-label="Página anterior">←</button><span id="page-label"></span><button id="next" aria-label="Próxima página">→</button></div>
+        <button id="clear-history" class="text-button" hidden>Limpar histórico deste dispositivo</button>
+      </section>
+      <section class="calculator" aria-label="Calculadora selecionada">
+        <div class="calculator-head"><span class="section-label">VAMOS RESOLVER</span><button id="detail-favorite" class="favorite" aria-label="Adicionar aos favoritos" aria-pressed="false">☆</button></div>
+        <span id="detail-category" class="category-chip"></span><h2 id="detail-title">Carregando…</h2><p id="detail-description" class="muted"></p>
+        <form id="calculator-form" novalidate><div id="fields" class="fields"></div><div class="form-actions"><button type="button" id="example" class="text-button">Usar exemplo</button><button type="button" id="reset" class="text-button">Limpar</button></div><button type="submit" class="calculate-button">Calcular <span>↗</span></button></form>
+        <p id="error" class="error" role="alert" hidden></p>
+        <div id="result" class="result" aria-live="polite" hidden><div class="result-top"><span>RESULTADO</span><button id="copy" class="copy-button" aria-label="Copiar resultado">Copiar ↗</button></div><div class="result-value"><strong id="result-value"></strong><span id="result-unit"></span></div><div id="steps" class="steps"></div></div>
+        <details class="formula"><summary>Como funciona <span>+</span></summary><p id="formula"></p><p>Dupla precisão numérica. As unidades e convenções aparecem nos campos.</p></details>
+        <p class="calculator-foot">Feito para explorar. Pronto para calcular.</p>
+      </section>
+    </div>
+    <footer>OmniCalc <span>Matemática · Ciência · Tecnologia</span><span id="storage-status">Histórico salvo apenas no navegador.</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script type="module" src="./src/ui/app.js"></script>
+</body>
+</html>
