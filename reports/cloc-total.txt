@@ -1,4 +1,8 @@
-github.com/AlDanial/cloc v 2.11  T=1.02 s (3847.5 files/s, 213846.0 lines/s)
+    3943 text files.
+classified 3943 filesDuplicate file check 3943 files (275 known unique)Unique:      100 files                                          Unique:      200 files                                              3943 unique files.                              
+Counting:  100Counting:  200Counting:  300Counting:  400Counting:  500Counting:  600Counting:  700Counting:  800Counting:  900Counting:  1000Counting:  1100Counting:  1200Counting:  1300Counting:  1400Counting:  1500Counting:  1600Counting:  1700Counting:  1800Counting:  1900Counting:  2000Counting:  2100Counting:  2200Counting:  2300Counting:  2400Counting:  2500Counting:  2600Counting:  2700Counting:  2800Counting:  2900Counting:  3000Counting:  3100Counting:  3200Counting:  3300Counting:  3400Counting:  3500Counting:  3600Counting:  3700Counting:  3800Counting:  3900      19 files ignored.
+
+github.com/AlDanial/cloc v 1.90  T=1.23 s (3184.1 files/s, 176971.6 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
