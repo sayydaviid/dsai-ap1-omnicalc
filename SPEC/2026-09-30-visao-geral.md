@@ -4,9 +4,7 @@
 Aplicação local e publicável de cálculo e conversão de unidades. Uma interface
 pesquisável conecta módulos executáveis gerados a partir de um catálogo compacto.
 O gerador economiza tokens; sua saída é declarada como código gerado, sem ocultar
-a repetição estrutural. A quantidade de linhas não prova complexidade nem garante
-aceitação acadêmica.
-
+a repetição estrutural. 
 ## Critérios de aceitação
 - Executar com Node.js >= 20, sem dependências npm, banco ou chave de API.
 - Permitir busca, categorias, favoritos, histórico e formulário de cálculo.

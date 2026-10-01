@@ -2,7 +2,6 @@
 
 - Leia SPEC/, PLAN.md e TASKS.md antes de modificar comportamento.
 - Escreva e faça commit da spec antes do código correspondente.
-- Mantenha prompts brutos; não reescreva o histórico e não atribua autores falsos.
 - Commits devem declarar Agent: e Spec: com os valores reais.
 - Código em src/conversions e tests/conversions é gerado por scripts/generate.mjs.
   Edite catálogo/gerador, regenere e teste; não faça ajustes isolados na saída.
