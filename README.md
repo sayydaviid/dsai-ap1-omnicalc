@@ -8,6 +8,27 @@ de matemática, finanças, geometria, estatística e redes.
 A interface está em português e possui busca, categorias, favoritos, histórico e
 explicações dos resultados. O projeto não usa dependências npm.
 
+## Entrega da AP1
+
+- Aplicação publicada: https://sayydaviid.github.io/dsai-ap1-omnicalc/
+- Repositório: https://github.com/sayydaviid/dsai-ap1-omnicalc
+- Integrantes: David Pinheiro Tavares e João Gonçalves Feio
+- Stack: JavaScript ESM, HTML, CSS e Node.js nativo
+
+Ferramentas e modelos registrados:
+
+- ChatGPT, na conversa pública indicada em `prompts/sessoes/`; o modelo não é
+  exposto na página compartilhada e por isso não é inventado aqui;
+- Codex, família GPT-6, sem identificador exato exposto, na geração inicial;
+- Codex com GPT-5.6 High, conforme registrado nos dois commits de validação
+  conduzidos por David;
+- Codex com GPT-5 nesta sessão de correção de conformidade.
+
+Existem seis specs datadas. O repositório contém um link público de conversa e
+um registro parcial de contexto; as exportações brutas completas continuam
+pendentes e não são substituídas pelo link. As horas de trabalho devem ser
+informadas pelos integrantes com base em seus registros reais.
+
 ## Como executar
 
 É necessário ter o Node.js 20 ou superior.
@@ -149,8 +170,9 @@ estático foi concluído.
 A interface foi verificada no Chromium em modo headless. Foram testados cálculo,
 vírgula decimal, busca, validação, permanência de favorito após recarregar,
 restauração do histórico, CIDR e visualização em tela de 390 px sem rolagem
-horizontal. Não ocorreram erros de JavaScript nesses fluxos. As capturas estão em
-`reports/ui-desktop.png` e `reports/ui-mobile.png`.
+horizontal. Não ocorreram erros de JavaScript nesses fluxos. As capturas usadas
+nessa conferência não foram versionadas; o resultado textual está em
+`reports/VALIDACAO.md`.
 
 A validação foi executada no Linux com Node.js 24.19.0. O requisito do projeto
 continua sendo Node.js 20 ou superior. Os arquivos para Windows estão incluídos,
