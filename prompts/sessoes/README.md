@@ -1,5 +1,19 @@
 # Registro de sessões
 
+## Conversa pública fornecida pelo integrante
+
+A conversa do ChatGPT está disponível em:
+
+https://chatgpt.com/share/6abea917-b48c-83e9-a9a0-362c6143d086
+
+O link foi acessado publicamente em 01/10/2026 e exibia a conversa que começa
+com `o que é sdd na computação?`. A página compartilhada não expõe um
+identificador confiável do modelo. O link permite auditoria, mas não é chamado
+de exportação bruta: ele depende do serviço externo e pode ser revogado.
+
+O arquivo `2026-10-01-chatgpt-link-publico.md` registra essa procedência sem
+reescrever a conversa.
+
 O conteúdo disponível nesta pasta é parcial. O arquivo
 `2026-09-30-contexto-recebido.md` reúne apenas as mensagens que estavam
 disponíveis no contexto durante a preparação do projeto. Ele não é uma exportação
@@ -21,5 +35,6 @@ informação real mostrada por `/status`; não declare que esta sessão usou GPT
 High.
 
 O histórico inicial de commits foi criado pelo ambiente, não pelas contas GitHub
-dos integrantes. A dupla ainda precisa realizar e registrar suas próprias sessões
-e alterações.
+dos integrantes. Os commits posteriores preservam esse histórico e registram
+novas sessões reais. João ainda precisa realizar e commitar uma contribuição real
+com a própria conta.

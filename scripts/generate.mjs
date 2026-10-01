@@ -154,9 +154,12 @@ ${item.absolute
 }
 
 let changed = 0;
+function normalizeNewlines(value) {
+  return value?.replace(/\r\n/g, '\n');
+}
 async function emit(filename, content) {
   const previous = await readFile(filename, 'utf8').catch(() => null);
-  if (previous === content) return;
+  if (normalizeNewlines(previous) === normalizeNewlines(content)) return;
   changed++;
   if (check) return;
   await writeFile(filename, content);
