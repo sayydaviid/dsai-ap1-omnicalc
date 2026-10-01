@@ -1,24 +1,24 @@
 {
   "counts": {
-    "total": 188811,
-    "application": 98814,
-    "tests": 89997
+    "total": 188852,
+    "application": 98817,
+    "tests": 90035
   },
   "total": {
     "header": {
       "cloc_url": "github.com/AlDanial/cloc",
-      "cloc_version": "1.90",
-      "elapsed_seconds": 1.30964589118958,
-      "n_files": 3925,
-      "n_lines": 218152,
-      "files_per_second": 2996.99332957465,
-      "lines_per_second": 166573.271040349
+      "cloc_version": "2.10",
+      "elapsed_seconds": 4.98049116134644,
+      "n_files": 3926,
+      "n_lines": 218201,
+      "files_per_second": 788.275668566519,
+      "lines_per_second": 43811.1408957929
     },
     "JavaScript": {
-      "nFiles": 3921,
-      "blank": 25426,
+      "nFiles": 3922,
+      "blank": 25434,
       "comment": 3915,
-      "code": 188578
+      "code": 188619
     },
     "CSS": {
       "nFiles": 1,
@@ -39,27 +39,27 @@
       "code": 26
     },
     "SUM": {
-      "blank": 25426,
+      "blank": 25434,
       "comment": 3915,
-      "code": 188811,
-      "nFiles": 3925
+      "code": 188852,
+      "nFiles": 3926
     }
   },
   "application": {
     "header": {
       "cloc_url": "github.com/AlDanial/cloc",
-      "cloc_version": "1.90",
-      "elapsed_seconds": 0.593429088592529,
+      "cloc_version": "2.10",
+      "elapsed_seconds": 3.6819920539856,
       "n_files": 1968,
-      "n_lines": 108627,
-      "files_per_second": 3316.31872759662,
-      "lines_per_second": 183049.671962723
+      "n_lines": 108630,
+      "files_per_second": 534.493277319739,
+      "lines_per_second": 29503.0511764448
     },
     "JavaScript": {
       "nFiles": 1964,
       "blank": 7852,
       "comment": 1961,
-      "code": 98581
+      "code": 98584
     },
     "CSS": {
       "nFiles": 1,
@@ -82,31 +82,31 @@
     "SUM": {
       "blank": 7852,
       "comment": 1961,
-      "code": 98814,
+      "code": 98817,
       "nFiles": 1968
     }
   },
   "tests": {
     "header": {
       "cloc_url": "github.com/AlDanial/cloc",
-      "cloc_version": "1.90",
-      "elapsed_seconds": 0.560010194778442,
-      "n_files": 1957,
-      "n_lines": 109525,
-      "files_per_second": 3494.57923846235,
-      "lines_per_second": 195576.796674803
+      "cloc_version": "2.10",
+      "elapsed_seconds": 1.57798409461975,
+      "n_files": 1958,
+      "n_lines": 109571,
+      "files_per_second": 1240.82366018513,
+      "lines_per_second": 69437.3285342927
     },
     "JavaScript": {
-      "nFiles": 1957,
-      "blank": 17574,
+      "nFiles": 1958,
+      "blank": 17582,
       "comment": 1954,
-      "code": 89997
+      "code": 90035
     },
     "SUM": {
-      "blank": 17574,
+      "blank": 17582,
       "comment": 1954,
-      "code": 89997,
-      "nFiles": 1957
+      "code": 90035,
+      "nFiles": 1958
     }
   }
 }

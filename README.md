@@ -22,13 +22,49 @@ Ferramentas e modelos registrados:
 - Codex, família GPT-6, sem identificador exato exposto, na geração inicial;
 - Codex com GPT-5.6 High, conforme registrado nos dois commits de validação
   conduzidos por David;
-- Codex com GPT-5 nesta sessão de correção de conformidade;
-- Antigravity AI com Gemini 3.6 Flash (High), no commit de teste de regressão EOL conduzido por João.
+- Codex com GPT-5 nas sessões de correção e recuperação de conformidade;
+- Antigravity AI com Gemini 3.6 Flash (High), no teste de regressão EOL
+  conduzido por João.
 
-Existem seis specs datadas. O repositório contém um link público de conversa e
-um registro parcial de contexto; as exportações brutas completas continuam
-pendentes e não são substituídas pelo link. As horas de trabalho devem ser
-informadas pelos integrantes com base em seus registros reais.
+Existem seis specs datadas. O material disponível inclui oito arquivos JSONL
+brutos do Codex — cinco sessões principais e três execuções auxiliares — e uma
+cópia literal de 277 linhas da conversa do ChatGPT fornecida por David. Essa
+cópia não contém papéis, horários ou modelo e apresenta lacunas conhecidas no
+início e no fim. A exportação do Antigravity ainda precisa ser fornecida por João.
+
+## Histórico e autoria
+
+David Pinheiro Tavares e João Gonçalves Feio possuem commits feitos por suas
+próprias contas. João adicionou o teste de regressão de finais de linha no commit
+`937a2a5`.
+
+Em 01/10/2026, o repositório remoto foi recriado e treze commits foram
+reconstruídos. Essa operação contrariou a regra do enunciado que proíbe reescrita
+do histórico. A linha original foi posteriormente recuperada, sem `push --force`
+e sem alterar a árvore atual, no histórico alcançável pela `main` e na branch
+`auditoria/historico-original`. O ocorrido permanece declarado para auditoria.
+
+## Números para a apresentação
+
+- 1.974 ferramentas: 1.952 conversões e 22 calculadoras adicionais;
+- 6 specs datadas;
+- 8 exportações JSONL do Codex, sendo 5 sessões principais e 3 execuções
+  auxiliares, mais 1 cópia literal de conversa do ChatGPT;
+- 17.642 testes aprovados em 1.957 suites;
+- 188.852 LOC totais: 98.817 de aplicação/infraestrutura e 90.035 de testes;
+- horas de trabalho informadas: **4 horas diárias por integrante**; o total de
+  dias não foi informado e não é estimado aqui.
+
+Três prompts para comentar durante a apresentação:
+
+1. Melhor resultado: `entao vamos fazer isso paizao, muda pro codex...`, que
+   iniciou a implementação orientada por specs e pelo gerador determinístico.
+2. Pior caminho considerado: a proposta de preencher linhas com palavras ou
+   código copiado. Ela foi descartada porque não produz software real nem atende
+   ao objetivo acadêmico da contagem.
+3. Mudança de rumo: o pedido para excluir e recriar o repositório. Ele levou à
+   reconstrução proibida do histórico e, depois da auditoria, à recuperação
+   transparente da linha original.
 
 ## Como executar
 
@@ -139,19 +175,19 @@ cloc . --vcs=git \
 
 <!-- CLOC:START -->
 
-188.811 LOC totais; 98.814 aplicação/infraestrutura; 89.997 testes.
+188.852 LOC totais; 98.817 aplicação/infraestrutura; 90.035 testes.
 
 ```text
-github.com/AlDanial/cloc v 2.11  T=1.02 s (3847.5 files/s, 213846.0 lines/s)
+github.com/AlDanial/cloc v 2.10  T=5.01 s (784.1 files/s, 43576.3 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-JavaScript                    3921          25426           3915         188578
+JavaScript                    3922          25434           3915         188619
 CSS                              1              0              0            152
 HTML                             1              0              0             55
 DOS Batch                        2              0              0             26
 -------------------------------------------------------------------------------
-SUM:                          3925          25426           3915         188811
+SUM:                          3926          25434           3915         188852
 -------------------------------------------------------------------------------
 ```
 
@@ -164,7 +200,7 @@ gerados, não em dados distribuídos artificialmente por linha.
 
 ## Validação realizada
 
-A validação registrou 17.639 testes aprovados, sem falhas, cancelamentos ou testes
+A validação registrou 17.642 testes aprovados, sem falhas, cancelamentos ou testes
 ignorados. As 1.952 conversões foram geradas novamente sem diferenças, e o build
 estático foi concluído.
 
@@ -175,6 +211,6 @@ horizontal. Não ocorreram erros de JavaScript nesses fluxos. As capturas usadas
 nessa conferência não foram versionadas; o resultado textual está em
 `reports/VALIDACAO.md`.
 
-A validação foi executada no Linux com Node.js 24.19.0. O requisito do projeto
-continua sendo Node.js 20 ou superior. Os arquivos para Windows estão incluídos,
-mas não foram testados nessa validação.
+A verificação atual foi executada no Windows com Node.js 24.14.0 e cloc 2.10. A
+verificação anterior de navegador foi executada no Linux com Node.js 24.19.0 e
+Chromium headless. O requisito do projeto continua sendo Node.js 20 ou superior.
