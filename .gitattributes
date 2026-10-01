@@ -1,4 +1,6 @@
 src/conversions/*.js text eol=lf
 tests/conversions/*.test.js text eol=lf
 src/catalog/conversions.js text eol=lf
-
+prompts/sessoes/*.jsonl -text
+prompts/sessoes/*.gz -text
+prompts/sessoes/*.txt -text
