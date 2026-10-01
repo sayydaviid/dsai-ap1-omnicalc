@@ -7,3 +7,4 @@ for (const name of (await readdir(new URL('./conversions/', import.meta.url))).s
 await import('./catalog.test.js');
 await import('./special.test.js');
 await import('./infrastructure.test.js');
+await import('./generator.test.js');

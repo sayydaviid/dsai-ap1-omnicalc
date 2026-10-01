@@ -8,6 +8,6 @@
 - [x] Testes e contagem oficial
 - [x] Pacote final
 - [x] Identificar David Pinheiro Tavares e João Gonçalves Feio no README
-- [ ] João: realizar uma contribuição real e commitar com a própria conta
+- [x] João: realizar uma contribuição real e commitar com a própria conta
 - [ ] Usuário: anexar exportações completas, inclusive conversas anteriores
 - [x] Publicar em URL pública e registrar os metadados conhecidos no README

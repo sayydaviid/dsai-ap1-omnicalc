@@ -22,7 +22,8 @@ Ferramentas e modelos registrados:
 - Codex, família GPT-6, sem identificador exato exposto, na geração inicial;
 - Codex com GPT-5.6 High, conforme registrado nos dois commits de validação
   conduzidos por David;
-- Codex com GPT-5 nesta sessão de correção de conformidade.
+- Codex com GPT-5 nesta sessão de correção de conformidade;
+- Antigravity AI com Gemini 3.6 Flash (High), no commit de teste de regressão EOL conduzido por João.
 
 Existem seis specs datadas. O repositório contém um link público de conversa e
 um registro parcial de contexto; as exportações brutas completas continuam
