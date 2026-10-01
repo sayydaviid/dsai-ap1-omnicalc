@@ -103,7 +103,21 @@ cloc . --vcs=git \
 
 <!-- CLOC:START -->
 
-Contagem sendo finalizada.
+188.811 LOC totais; 98.814 aplicação/infraestrutura; 89.997 testes.
+
+```text
+github.com/AlDanial/cloc v 2.11  T=1.02 s (3847.5 files/s, 213846.0 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+JavaScript                    3921          25426           3915         188578
+CSS                              1              0              0            152
+HTML                             1              0              0             55
+DOS Batch                        2              0              0             26
+-------------------------------------------------------------------------------
+SUM:                          3925          25426           3915         188811
+-------------------------------------------------------------------------------
+```
 
 <!-- CLOC:END -->
 
@@ -116,6 +130,10 @@ em uma única linha; o volume medido vem dos módulos e testes, não de dados po
 - 17.639 testes passaram; nenhuma falha, cancelamento ou teste ignorado.
 - 1.952 conversões reconstruídas sem diferenças: geração determinística.
 - Build estático executado com sucesso.
+- Interface conferida em Chromium headless: cálculo, vírgula decimal, busca,
+  validação, favorito após recarregar, restauração do histórico, CIDR e celular
+  de 390px sem overflow horizontal; sem erros de JavaScript nos fluxos testados.
+- Capturas desktop/mobile incluídas em reports/ui-desktop.png e ui-mobile.png no ZIP.
 - Node utilizado na validação: 24.19.0; requisito declarado: Node >= 20.
 - O código Windows está incluído, mas a validação foi executada em Linux.
 
